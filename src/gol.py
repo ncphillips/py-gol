@@ -11,3 +11,6 @@ class World:
 
     def add_cell(self, x, y):
         self.cells.add((x, y))
+
+    def get_cell(self, x, y):
+        return None
