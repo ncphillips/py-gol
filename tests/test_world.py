@@ -3,7 +3,6 @@ from src.gol import World
 
 
 class WorldTest(unittest.TestCase):
-
     def test_new_world_is_empty(self):
         world = World()
         self.assertTrue(world.empty())
@@ -32,3 +31,7 @@ class WorldTest(unittest.TestCase):
         world.add_cell(3, 1)
         world.add_cell(3, 1)
         self.assertEqual(1, world.size())
+
+    def test_getting_cell_from_empty_location_returns_none(self):
+        world = World()
+        self.assertIsNone(world.get_cell(0, 0))
