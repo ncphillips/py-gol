@@ -24,3 +24,4 @@ class WorldTest(unittest.TestCase):
 
         world.add_cell(1, 1)
         self.assertEqual(2, world.size())
+        self.assertEqual(2, world.size())
