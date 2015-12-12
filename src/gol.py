@@ -13,4 +13,6 @@ class World:
         self.cells.add((x, y))
 
     def get_cell(self, x, y):
+        if (x, y) in self.cells:
+            return True
         return None
