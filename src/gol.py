@@ -21,7 +21,6 @@ class Cell:
 
     def __init__(self, alive):
         self.living = alive
-        pass
 
     @staticmethod
     def create_living_cell():
