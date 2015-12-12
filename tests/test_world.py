@@ -30,4 +30,5 @@ class WorldTest(unittest.TestCase):
         world = World()
         world.add_cell(3, 1)
         world.add_cell(3, 1)
+        world.add_cell(3, 1)
         self.assertEqual(1, world.size())
