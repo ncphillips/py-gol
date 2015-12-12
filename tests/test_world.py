@@ -40,3 +40,9 @@ class WorldTest(unittest.TestCase):
         world = World()
         world.add_cell(0, 1)
         self.assertIsNotNone(world.get_cell(0, 1))
+
+
+class CellTests(unittest.TestCase):
+    def test_living_cell_is_alive(self):
+        cell = Cell.create_living_cell()
+        self.assertTrue(cell.is_alive())
