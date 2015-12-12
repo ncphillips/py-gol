@@ -35,3 +35,8 @@ class WorldTest(unittest.TestCase):
     def test_getting_cell_from_empty_location_returns_none(self):
         world = World()
         self.assertIsNone(world.get_cell(0, 0))
+
+    def test_getting_cell_returns_not_none(self):
+        world = World()
+        world.add_cell(0, 1)
+        self.assertIsNotNone(world.get_cell(0, 1))
