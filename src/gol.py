@@ -16,3 +16,15 @@ class World:
         if (x, y) in self.cells:
             return True
         return None
+
+class Cell:
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def create_living_cell():
+        return Cell()
+
+    def is_alive(self):
+        return True

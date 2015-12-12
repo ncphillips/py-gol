@@ -1,5 +1,5 @@
 import unittest
-from src.gol import World
+from src.gol import *
 
 
 class WorldTest(unittest.TestCase):
