@@ -12,3 +12,15 @@ class WorldTest(unittest.TestCase):
         world = World()
         world.add_cell(0, 0)
         self.assertFalse(world.empty())
+
+    def test_world_size_corresponds_to_num_cells_added(self):
+        world = World()
+
+        world.add_cell(0, 0)
+        self.assertEqual(0, world.size())
+
+        world.add_cell(1, 0)
+        self.assertEqual(1, world.size())
+
+        world.add_cell(1, 1)
+        self.assertEqual(2, world.size())
