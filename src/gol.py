@@ -1,8 +1,12 @@
 class World:
 
-    world_size = 0
+
     def __init__(self):
+        self.cells = []
         pass
 
-    def size(self):
-        return self.world_size
+    def empty(self):
+        return len(self.cells) == 0
+
+    def add_cell(self, x, y):
+        self.cells.append((x, y))
