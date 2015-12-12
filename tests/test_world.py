@@ -17,14 +17,14 @@ class WorldTest(unittest.TestCase):
         world = World()
 
         world.add_cell(0, 0)
-        self.assertEqual(0, world.size())
-
-        world.add_cell(1, 0)
         self.assertEqual(1, world.size())
 
+        world.add_cell(1, 0)
+        self.assertEqual(2, world.size())
+
         world.add_cell(1, 1)
-        self.assertEqual(2, world.size())
-        self.assertEqual(2, world.size())
+        self.assertEqual(3, world.size())
+        self.assertEqual(3, world.size())
 
     def test_adding_cell_to_location_twice_doesnt_increase_size(self):
         world = World()
