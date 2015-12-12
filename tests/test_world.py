@@ -46,3 +46,7 @@ class CellTests(unittest.TestCase):
     def test_living_cell_is_alive(self):
         cell = Cell.create_living_cell()
         self.assertTrue(cell.is_alive())
+
+    def test_dead_cell_is_dead(self):
+        cell = Cell.create_dead_cell()
+        self.assertFalse(cell.is_alive())
