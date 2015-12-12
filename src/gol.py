@@ -4,6 +4,9 @@ class World:
         self.cells = []
         pass
 
+    def size(self):
+        return len(self.cells) - 1
+
     def empty(self):
         return len(self.cells) == 0
 
