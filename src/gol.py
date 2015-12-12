@@ -19,12 +19,17 @@ class World:
 
 class Cell:
 
-    def __init__(self):
+    def __init__(self, alive):
+        self.living = alive
         pass
 
     @staticmethod
     def create_living_cell():
-        return Cell()
+        return Cell(True)
+
+    @staticmethod
+    def create_dead_cell():
+        return Cell(False)
 
     def is_alive(self):
-        return True
+        return self.living
