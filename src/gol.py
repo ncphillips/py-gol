@@ -17,6 +17,15 @@ class World:
             return Cell.create_living_cell()
         return Cell.create_dead_cell()
 
+    def count_neighbors_of(self, x, y):
+        neighbors = 0
+
+        for cell in self.cells:
+            if (cell[1] - 1) == y  or (cell[1] + 1) == y:
+                neighbors += 1
+
+        return neighbors
+
 class Cell:
 
     def __init__(self, alive):
