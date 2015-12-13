@@ -32,14 +32,16 @@ class WorldTest(unittest.TestCase):
         world.add_cell(3, 1)
         self.assertEqual(1, world.size())
 
-    def test_getting_cell_from_empty_location_returns_none(self):
+    def test_getting_cell_from_empty_location_returns_dead_cell(self):
         world = World()
-        self.assertIsNone(world.get_cell(0, 0))
+        cell = world.get_cell(5, 2)
+        self.assertFalse(cell.is_alive())
 
     def test_getting_cell_returns_not_none(self):
         world = World()
         world.add_cell(0, 1)
-        self.assertIsNotNone(world.get_cell(0, 1))
+        cell = world.get_cell(0, 1)
+        self.assertTrue(cell.is_alive())
 
 
 class CellTests(unittest.TestCase):
