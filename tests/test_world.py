@@ -43,7 +43,7 @@ class WorldTest(unittest.TestCase):
         cell = world.get_cell(0, 1)
         self.assertTrue(cell.is_alive())
 
-    def test_count_living_neighbors_of_location_horizontal_plane(self):
+    def test_count_living_neighbours_of_location_vertical_plane(self):
         world = World()
 
         world.add_cell(0, 0)
@@ -51,10 +51,25 @@ class WorldTest(unittest.TestCase):
         world.add_cell(0, 2)
         world.add_cell(10, 10)
 
-        self.assertEqual(1, world.count_neighbors_of(0, 0))
-        self.assertEqual(2, world.count_neighbors_of(0, 1))
-        self.assertEqual(1, world.count_neighbors_of(0, 2))
-        self.assertEqual(0, world.count_neighbors_of(10, 10))
+        self.assertEqual(1, world.count_neighbours_of(0, 0))
+        self.assertEqual(2, world.count_neighbours_of(0, 1))
+        self.assertEqual(1, world.count_neighbours_of(0, 2))
+        self.assertEqual(0, world.count_neighbours_of(100, 10))
+
+
+    def test_count_living_neighbours_of_location_horizontal_plane(self):
+        world = World()
+
+        world.add_cell(0, 0)
+        world.add_cell(1, 0)
+        world.add_cell(2, 0)
+        world.add_cell(-10, 10)
+
+        self.assertEqual(1, world.count_neighbours_of(0, 0))
+        self.assertEqual(2, world.count_neighbours_of(1, 0))
+        self.assertEqual(1, world.count_neighbours_of(2, 0))
+        self.assertEqual(0, world.count_neighbours_of(-10, 10))
+        self.assertEqual(0, world.count_neighbours_of(100, 10))
 
 
 class CellTests(unittest.TestCase):
