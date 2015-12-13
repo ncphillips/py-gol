@@ -37,11 +37,24 @@ class WorldTest(unittest.TestCase):
         cell = world.get_cell(5, 2)
         self.assertFalse(cell.is_alive())
 
-    def test_getting_cell_returns_not_none(self):
+    def test_getting_cell_returns_living_cell(self):
         world = World()
         world.add_cell(0, 1)
         cell = world.get_cell(0, 1)
         self.assertTrue(cell.is_alive())
+
+    def test_count_living_neighbors_of_location_horizontal_plane(self):
+        world = World()
+
+        world.add_cell(0, 0)
+        world.add_cell(0, 1)
+        world.add_cell(0, 2)
+        world.add_cell(10, 10)
+
+        self.assertEqual(1, world.count_neighbors_of(0, 0))
+        self.assertEqual(2, world.count_neighbors_of(0, 1))
+        self.assertEqual(1, world.count_neighbors_of(0, 2))
+        self.assertEqual(0, world.count_neighbors_of(10, 10))
 
 
 class CellTests(unittest.TestCase):
