@@ -14,8 +14,8 @@ class World:
 
     def get_cell(self, x, y):
         if (x, y) in self.cells:
-            return True
-        return None
+            return Cell.create_living_cell()
+        return Cell.create_dead_cell()
 
 class Cell:
 
