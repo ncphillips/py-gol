@@ -3,6 +3,7 @@ import requests
 import json
 
 def main():
+    # so secure
     slack_url = os.environ["PINGPONGURL"]
     repo_url = "https://github.com/mittonface/py-gol"
     text = "Some jerk broke the tests on %s. Who do they think they are?" % repo_url
