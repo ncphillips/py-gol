@@ -21,11 +21,11 @@ class World:
         neighbours = 0
 
         for cell in self.cells:
-            if (cell[1] - 1) == y  or (cell[1] + 1) == y:
+            if (cell[1] - 1) == y or (cell[1] + 1) == y:
                 neighbours += 1
 
         for cell in self.cells:
-            if (cell[0] - 1) == x  or (cell[0] + 1) == x:
+            if (cell[0] - 1) == x or (cell[0] + 1) == x:
                 neighbours += 1
         return neighbours
 
