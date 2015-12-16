@@ -151,4 +151,25 @@ class WorldTickTest(unittest.TestCase):
         world = World()
         world.tick()
         self.assertTrue(world.empty())
+
+    def test_block_stays_the_same(self):
+        world = World()
+
+        world.add_cell(0, 0)
+        world.add_cell(0, 1)
+        world.add_cell(1, 0)
+        world.add_cell(1, 1)
+
+        self.assertTrue(world.get_cell(0, 0).is_alive())
+        self.assertTrue(world.get_cell(0, 1).is_alive())
+        self.assertTrue(world.get_cell(1, 0).is_alive())
+        self.assertTrue(world.get_cell(1, 1).is_alive())
+
+        self.assertEqual(4, world.size())
+
+    def test_world_with_lone_block_is_empty_after_tick(self):
+        world = World()
+        world.add_cell(0, 0)
+        world.tick()
+        self.assertTrue(world.empty())
         
