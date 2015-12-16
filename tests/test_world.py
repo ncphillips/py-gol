@@ -70,7 +70,7 @@ class WorldTest(unittest.TestCase):
         self.assertEqual(0, world.count_neighbours_of(-10, 10))
         self.assertEqual(0, world.count_neighbours_of(100, 10))
 
-    def test_here___diagonally(self):
+    def test_here___diagonally_up(self):
         world = World()
 
         world.add_cell(0, 0)
@@ -84,6 +84,20 @@ class WorldTest(unittest.TestCase):
         self.assertEqual(0, world.count_neighbours_of(-10, 10))
         self.assertEqual(0, world.count_neighbours_of(100, 10))
 
+    def test_here___diagonally_down(self):
+        world = World()
+
+        world.add_cell(0, 0)
+        world.add_cell(-1, -1)
+        world.add_cell(-2, -2)
+        world.add_cell(-10, -10)
+
+        self.assertEqual(1, world.count_neighbours_of(0, 0))
+        self.assertEqual(2, world.count_neighbours_of(-1, -1))
+        self.assertEqual(1, world.count_neighbours_of(-2, -2))
+        self.assertEqual(0, world.count_neighbours_of(-10, 10))
+        self.assertEqual(0, world.count_neighbours_of(78, 13))
+
 
 class CellTests(unittest.TestCase):
     def test_living_cell_is_alive(self):
@@ -93,3 +107,13 @@ class CellTests(unittest.TestCase):
     def test_dead_cell_is_dead(self):
         cell = Cell.create_dead_cell()
         self.assertFalse(cell.is_alive())
+
+    def test_living_cell_with_0_neighbors_will_die(self):
+        cell = Cell.create_living_cell()
+
+        num_neighbours = 0
+
+        self.assertTrue(cell.willBeAlive(num_neighbours))
+
+
+
