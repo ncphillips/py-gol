@@ -36,7 +36,8 @@ class World:
         return neighbours
 
     def tick(self):
-        return []
+        self.cells = set()
+        return self.cells
 
 class Cell:
 
