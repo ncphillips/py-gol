@@ -35,7 +35,8 @@ class World:
 
         return neighbours
 
-
+    def tick(self):
+        return []
 
 class Cell:
 
@@ -60,4 +61,4 @@ class Cell:
     def will_be_alive(self, num_neighbours):
         if self.living:
             return (num_neighbours == 2 or num_neighbours == 3)
-        return False
+        return num_neighbours == 3
