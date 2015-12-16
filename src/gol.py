@@ -35,6 +35,8 @@ class World:
 
         return neighbours
 
+
+
 class Cell:
 
     def __init__(self, alive):
@@ -56,5 +58,4 @@ class Cell:
         return self.will_be_alive(num_neighbours)
 
     def will_be_alive(self, num_neighbours):
-
-        return type(num_neighbours) == int
+        return num_neighbours >= 2
