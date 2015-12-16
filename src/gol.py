@@ -58,4 +58,6 @@ class Cell:
         return self.will_be_alive(num_neighbours)
 
     def will_be_alive(self, num_neighbours):
-        return num_neighbours >= 2
+        if self.living:
+            return (num_neighbours == 2 or num_neighbours == 3)
+        return False
