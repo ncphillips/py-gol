@@ -50,3 +50,11 @@ class Cell:
 
     def is_alive(self):
         return self.living
+
+    # you're a barbarian with your function naming, nolan
+    def willBeAlive(self, num_neighbours):
+        return self.will_be_alive(num_neighbours)
+
+    def will_be_alive(self, num_neighbours):
+
+        return type(num_neighbours) == int
