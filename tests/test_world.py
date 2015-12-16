@@ -127,7 +127,7 @@ class CellTests(unittest.TestCase):
             self.assertFalse(cell.will_be_alive(num_neighbours))
 
     def test_dead_cell_with_3_neighbours_will_be_alive(self):
-        cell = Cell.create_living_cell()
+        cell = Cell.create_dead_cell()
 
         num_neighbours = 3
 
@@ -146,4 +146,9 @@ class CellTests(unittest.TestCase):
             self.assertFalse(cell.will_be_alive(num_neighbours))
 
 
-
+class WorldTickTest(unittest.TestCase):
+    def test_empty_world_is_empty_after_tick(self):
+        world = World()
+        world.tick()
+        self.assertTrue(world.empty())
+        
