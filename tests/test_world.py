@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 from src.gol import *
 
 
@@ -172,4 +173,10 @@ class WorldTickTest(unittest.TestCase):
         world.add_cell(0, 0)
         world.tick()
         self.assertTrue(world.empty())
-        
+
+    @patch.object(Cell, 'will_be_alive', return_value=False)
+    def test_tick_should_call_will_be_alive(self, method):
+        world = World()
+        world.add_cell(0, 0)
+        world.tick()
+        self.assertTrue(method.called)
