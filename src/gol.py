@@ -37,6 +37,7 @@ class World:
 
     def tick(self):
         self.cells = set()
+        Cell.create_living_cell().will_be_alive(0)
         return self.cells
 
 class Cell:
