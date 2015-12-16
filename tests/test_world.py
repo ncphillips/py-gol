@@ -108,12 +108,17 @@ class CellTests(unittest.TestCase):
         cell = Cell.create_dead_cell()
         self.assertFalse(cell.is_alive())
 
-    def test_living_cell_with_0_neighbors_will_die(self):
+    def test_living_cell_with_less_than_2_neighbors_will_die(self):
         cell = Cell.create_living_cell()
 
-        num_neighbours = 0
+        for num_neighbours in range(-1000, 2):
+            self.assertFalse(cell.willBeAlive(num_neighbours))
 
-        self.assertTrue(cell.willBeAlive(num_neighbours))
+    def test_living_cell_with_2_or_3_neighbours_will_live(self):
+        cell = Cell.create_living_cell()
 
+        for num_neighbours in range(2, 4):
+            print(num_neighbours)
+            self.assertTrue(cell.willBeAlive(num_neighbours))
 
 
