@@ -168,6 +168,27 @@ class WorldTickTest(unittest.TestCase):
 
         self.assertEqual(4, world.size())
 
+    def test_blinker(self):
+        world = World()
+        world.add_cell(0, 0)
+        world.add_cell(-1, 0)
+        world.add_cell(1, 0)
+
+        world.tick()
+
+        self.assertTrue(world.get_cell(0, 0).is_alive())
+        self.assertFalse(world.get_cell(-1, 0).is_alive())
+        self.assertFalse(world.get_cell(1, 0).is_alive())
+        self.assertTrue(world.get_cell(0, -1).is_alive())
+        self.assertTrue(world.get_cell(0, 1).is_alive())
+
+        world.tick()
+        self.assertTrue(world.get_cell(0, 0).is_alive())
+        self.assertTrue(world.get_cell(-1, 0).is_alive())
+        self.assertTrue(world.get_cell(1, 0).is_alive())
+        self.assertFalse(world.get_cell(0, -1).is_alive())
+        self.assertFalse(world.get_cell(0, 1).is_alive())
+
     def test_world_with_lone_block_is_empty_after_tick(self):
         world = World()
         world.add_cell(0, 0)
