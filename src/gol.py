@@ -20,13 +20,19 @@ class World:
     def count_neighbours_of(self, x, y):
         neighbours = 0
 
-        for cell in self.cells:
-            if (cell[1] - 1) == y  or (cell[1] + 1) == y:
+
+        all_neighbours = set()
+        for i in range(x-1, x+2):
+            for j in range(y-1, y+2):
+                all_neighbours.add((i,j))
+
+        # a cell isn't a neighbour of itself
+        all_neighbours.remove((x, y))
+
+        for neighbour in all_neighbours:
+            if neighbour in self.cells:
                 neighbours += 1
 
-        for cell in self.cells:
-            if (cell[0] - 1) == x  or (cell[0] + 1) == x:
-                neighbours += 1
         return neighbours
 
 class Cell:

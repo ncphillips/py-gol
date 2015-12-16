@@ -1,0 +1,9 @@
+env: 
+  secure: "EI8g0VkhBZo5VV+KV0sa2AI7hOMrEriLYN0DNEwqkKjNLTEkxa4GvMteq0vXVpceA5Wj2PCbkAdyGlnSYGiJUEI9fnNE93ZiNclntnitLwf4Zs3q8xqqzDed8635VSmTTDa8ZX+hQ6gcIcQz/n4+IXKQIGHA3UGB4vQcQ61ihFlXCl/KTb3e5V/waC7LrHf6di15c5vD7OyAcd0XSW+xnsTyXF3VZhoOYnzZegEisiCvN5s6ekY+MObP2vuqcxwExmFQ+9zzsglnjIPRmVZj3yT+N8SGGT38bz01h6FRDPU3U1pK3mGEDdYiWDU95pphNs2lXQ91lLIQyQUu+Ex535Aj/hwT/FBCqij/5Rwhe49DXmRh38leQ4fx9kw/UxCrJJX74l66rSAV51RPoz7OG8Cd2R6BUZi3Wr4UrrdEagKH/G3lcxsMd699yLSuXWQanJgUGHrfc0EH+zrlTsKJjhRqBwxFoJev5h2UZlEACx1kFKlj37updM/m3BBiWqqC03vW4GSzcEle33DvLNMAJfManQ/OvcXbtCGuXzF7UUnWCzZ2IQhzBR8Xx7zSdziCirem5zoXDpQWyZpLjJU9vczVQuY3Q13ARAqnbJ3AGDws+t/RGLyzbWUoDR+Dfh88TV4cmqvK5cspmhi6kCy8hC2xmmKH3tDinL5ZgAnBnKs="
+language: python
+install: "pip install -r requirements.txt"
+script: nosetests
+after_failure:
+  - python ping.py
+after_success:
+  - python pong.py
